@@ -5,7 +5,7 @@ public class UtilObject {
 	private static final UtilObject INSTANCE = new UtilObject();
 	
 	private UtilObject() {
-		
+		super();
 	}
 	
 	public static UtilObject getUtilObject() {
