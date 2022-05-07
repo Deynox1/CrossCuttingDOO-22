@@ -1,6 +1,9 @@
 package co.edu.uco.crosscutting.exception;
 
 import static co.edu.uco.crosscutting.util.text.UtilText.*;
+
+import co.edu.uco.crosscutting.util.text.UtilText;
+
 import static co.edu.uco.crosscutting.util.object.UtilObject.getUtilObject;
 
 public class GeneralException extends RuntimeException {
@@ -11,9 +14,21 @@ public class GeneralException extends RuntimeException {
 	private String technicalMessage;
 	private Exception rootException;
 	
-	protected GeneralException(String userMessage, String technicalMessage,
-			super();
+	protected GeneralException(String userMessage, String technicalMessage, Exception rootException) {
+		super();
+		this.userMessage = userMessage;
+		this.technicalMessage = technicalMessage;
+		this.rootException = rootException;
+	}
 	
+	public static GeneralException build(String technicalMessage) {
+		return new GeneralException(null, technicalMessage, null);
+	}
+	
+	public static GeneralException build(String technicalMessage,
+			Exception rootException) {
+		return new GeneralException(null, technicalMessage, rootException);
+	}
 	
 	public String getUserMessage() {
 		return userMessage;
@@ -32,7 +47,7 @@ public class GeneralException extends RuntimeException {
 	}
 	private void setRootException(Exception rootException) {
 		this.rootException = getUtilObject().getDefault(rootException,
-				new Exception)
+				new Exception());
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
