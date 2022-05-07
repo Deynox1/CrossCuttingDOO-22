@@ -1,4 +1,4 @@
-package co.edu.co.crosscutting.util.object;
+package co.edu.uco.crosscutting.util.object;
 
 public class UtilObject {
 	

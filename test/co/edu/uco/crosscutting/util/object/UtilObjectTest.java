@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import co.edu.co.crosscutting.util.object.UtilObject;
+import co.edu.uco.crosscutting.util.object.UtilObject;
 
 class UtilObjectTest {
 
