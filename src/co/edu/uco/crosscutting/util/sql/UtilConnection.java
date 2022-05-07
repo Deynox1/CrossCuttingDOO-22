@@ -21,7 +21,7 @@ public class UtilConnection {
 			return connection.isClosed();
 		} catch (SQLException exception) {
 			throw GeneralException.build(
-					"Problems trying to validate if connection was closed!"
+					"Problems trying to validate if connection was closed!",
 					exception);
 		}
 	
