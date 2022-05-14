@@ -27,6 +27,10 @@ public class UtilConnection {
 	
 	}
 	
+	public static boolean isOpen(Connection connection) {
+		return !isClosed(connection);
+	}
+	
 }
 
 

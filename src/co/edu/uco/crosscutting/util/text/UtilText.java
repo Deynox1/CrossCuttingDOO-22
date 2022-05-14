@@ -17,7 +17,7 @@ public class UtilText {
 		return getUtilObject().getDefault(value, defaultValue);
 	}
 	
-	private static String getDefault(String value) {
+	public static String getDefault(String value) {
 		return getDefault(value, EMPTY);
 	}
 	
