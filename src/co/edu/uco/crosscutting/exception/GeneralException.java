@@ -16,9 +16,9 @@ public class GeneralException extends RuntimeException {
 	
 	protected GeneralException(String userMessage, String technicalMessage, Exception rootException) {
 		super();
-		this.userMessage = userMessage;
-		this.technicalMessage = technicalMessage;
-		this.rootException = rootException;
+		setUserMessage(userMessage);
+		setTechnicalMessage(technicalMessage);
+		setRootException(rootException);
 	}
 	
 	public static GeneralException build(String technicalMessage) {
