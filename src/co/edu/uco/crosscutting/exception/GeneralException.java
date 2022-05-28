@@ -1,10 +1,7 @@
 package co.edu.uco.crosscutting.exception;
 
-import static co.edu.uco.crosscutting.util.text.UtilText.*;
-
-import co.edu.uco.crosscutting.util.text.UtilText;
-
 import static co.edu.uco.crosscutting.util.object.UtilObject.getUtilObject;
+import static co.edu.uco.crosscutting.util.text.UtilText.trim;
 
 public class GeneralException extends RuntimeException {
 
@@ -25,34 +22,31 @@ public class GeneralException extends RuntimeException {
 		return new GeneralException(null, technicalMessage, null);
 	}
 	
-	public static GeneralException build(String technicalMessage,
-			Exception rootException) {
+	public static GeneralException build(String technicalMessage, Exception rootException) {
 		return new GeneralException(null, technicalMessage, rootException);
 	}
-	
-	public String getUserMessage() {
-		return userMessage;
-	}
+
 	private void setUserMessage(String userMessage) {
 		this.userMessage = trim(userMessage);
 	}
-	public String getTechnicalMessage() {
-		return technicalMessage;
-	}
+
 	private void setTechnicalMessage(String technicalMessage) {
 		this.technicalMessage = trim(technicalMessage);
 	}
+
+	private void setRootException(Exception rootException) {
+		this.rootException = getUtilObject().getDefault(rootException, new Exception());
+	}
+
+	public String getUserMessage() {
+		return userMessage;
+	}
+
+	public String getTechnicalMessage() {
+		return technicalMessage;
+	}
+
 	public Exception getRootException() {
 		return rootException;
 	}
-	private void setRootException(Exception rootException) {
-		this.rootException = getUtilObject().getDefault(rootException,
-				new Exception());
-	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
-	
-
 }
